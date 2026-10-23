@@ -1,0 +1,30 @@
+{{ define "main" }}
+    <header class="content__header">
+        <h1>{{ .Title | markdownify }}</h1>
+    </header>
+    {{ if ne .File.LogicalName "about.md" }}
+    <div class="post-meta" style="margin: 1rem 0 2rem 0; font-size: 0.9rem; color: var(--base04); display: flex; gap: 1.5rem; font-family: var(--font-monospace);">
+        <span>Published  {{ .Date.Format "02-01-2006" }}</span>
+        <span>{{ .ReadingTime }} min read</span>
+        <span>{{ .WordCount }} words</span>
+    </div>
+    {{end}}
+    <!-- Only display the Table of Contents if there are actually headings in the post -->
+{{ if gt (len .TableOfContents) 300 }}
+<aside class="toc-container" style="background-color: var(--inner-bg); border: 1px solid var(--base02); border-left: 3px solid var(--base0E); padding: 1.25rem; margin-bottom: 2.5rem; border-radius: 4px;">
+    <summary style="font-weight: 700; font-family: var(--font-monospace); text-transform: uppercase; font-size: 0.85rem; color: var(--base04); margin-bottom: 0.75rem; letter-spacing: 0.05em;">
+        Table of Contents
+    </summary>
+    <nav id="TableOfContents">
+        {{ .TableOfContents }}
+    </nav>
+</aside>
+{{end}}
+
+
+    <div class="content__body">
+        {{ .Content }}
+    </div>
+    <footer class="content__footer"></footer>
+{{ end }}
+

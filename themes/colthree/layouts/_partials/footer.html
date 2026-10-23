@@ -1,0 +1,102 @@
+<footer class="page__footer" style="margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--base02); font-size: 0.9rem; color: var(--base04);">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <!-- Left: Copyright Statement -->
+        <p style="margin: 0;">Copyright {{ now.Year }}. All rights reserved.</p>
+        
+        <!-- Right: Dynamic Publish Date -->
+        {{ if not .Date.IsZero }}
+        <span style="font-family: var(--font-monospace); color: var(--base03);">
+            Published: {{ .Date.Format "2006-01-02" }}
+        </span>
+        {{ end }}
+    </div>
+</footer>
+
+
+<script>
+function copyCode(button) {
+    // Find the code container wrapper matching this button
+    const wrapper = button.closest('.code-wrapper');
+    const codeElement = wrapper.querySelector('code');
+    
+    if (!codeElement) return;
+
+    // Grab inner plain text content out of Chroma's wrapper elements
+    const codeText = codeElement.innerText;
+
+    navigator.clipboard.writeText(codeText).then(() => {
+        button.innerText = 'Copied!';
+        button.style.borderColor = '#4caf50';
+        button.style.color = '#4caf50';
+        
+        // Flash confirmation UI indicator state back to standard rules
+        setTimeout(() => {
+            button.innerText = 'Copy';
+            button.style.borderColor = '#555';
+            button.style.color = '#aaa';
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
+}
+</script>
+
+
+<!-- Load Prism.js Core -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+
+<script>
+// Deep token lexer configuration tailored perfectly to your language syntax
+Prism.languages['zea'] = {
+    // Matches block double-slash code comments
+    'comment': /\/\/.*|\/\*[\s\S]*?\*\//,
+    
+    // Matches string text paths like "file.txt"
+    'string': {
+        pattern: /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,
+        greedy: true
+    },
+    
+    // Highlights core constructs: functions, variable declarations, error expectations
+    'keyword': /\b(fn|var|const|import|return|expect)\b/,
+    
+    // Highlights standard primitives and return types
+    'builtin': /\b(void|string|int|float|bool)\b/,
+    
+    // Matches structural effect tracking modules like std.File.open or std.Raises
+    'class-name': /\b[a-zA-Z_][a-zA-Z0-9_]*(?:\.[a-zA-Z_][a-zA-Z0-9_]*)*\b/,
+    
+    // Highlights functional operational vectors like arrow declarations and assignment symbols
+    'operator': /->|:=|[:=\-+*\/<>!&|]/,
+    
+    // Standard lexical anchors
+    'punctuation': /[{}[\];(),.]/
+};
+
+// Fire highlighting update sequence immediately once page modules finish loading
+document.addEventListener("DOMContentLoaded", function() {
+    Prism.highlightAll();
+});
+</script>
+
+
+
+<script>
+document.addEventListener("scroll", function() {
+    const progressBar = document.getElementById("reading-progress");
+    if (!progressBar) return;
+
+    // Calculate how much text length the user has scanned through
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    
+    // Convert current location into a true fractional percentage integer
+    const scrollPercentage = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    
+    // Inject the width style value instantly back to our canvas container rule
+    progressBar.style.width = scrollPercentage + "%";
+});
+</script>
+
+
+

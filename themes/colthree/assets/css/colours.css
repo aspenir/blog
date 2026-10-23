@@ -1,0 +1,32 @@
+:root {
+
+	--base00: #2a2a2e; /*changed from mocha crust color*/
+	--base01: #4a4a4f; /*mantle*/
+	--base02: #4a4a4f; /*base*/
+
+	--base03: #aaa5a5; /*overlay0*/
+	--base04: #aaa5a5; /*subtext0*/
+	--base05: #f0f0f0; /*subtext1*/
+
+	--base0A: #57b4a0; /*rosewater*/
+	--base0B: #64a9ca; /*blue*/
+	--base0C: #aaa5a5; /*maroon*/
+	--base0D: #fd96a9; /*mauve*/
+	--base0E: #d0d0d0;
+
+	/* Background */
+	--bg: var(--base00);
+	--off-bg: var(--base01);
+	--inner-bg: var(--base02);
+
+	/* Text */
+	--fg: var(--base05);
+	--off-fg: var(--base04);
+	--muted: var(--base03);
+	--link: var(--base0D);
+	--hover: var(--base0C);
+	--highlight: var(--base0D);
+
+	/* Logo */
+	--logo: var(--base0B);
+}

@@ -1,0 +1,30 @@
+{{- /* Parse highlighted HTML using Hugo's built-in engine */ -}}
+{{- $result := transform.HighlightCodeBlock . -}}
+
+
+
+<div class="code-wrapper" style="position: relative; margin: 1.5rem 0;">
+    <!-- Code Header Bar -->
+    <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 1rem; background: #4a4a4f; color: #aaa; font-family: monospace; font-size: 0.85rem; border-radius: 4px 4px 0 0; border-bottom: 1px solid #3d3d3d;">
+        <!-- Language Tag Label -->
+        <span class="code-lang" style="font-weight: bold;">
+            {{- .Type | default "text" -}}
+        </span>
+        {{- with .Attributes.title -}}
+        <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 1rem; background: #2a2a2e; color: #555; border-bottom: 1px solid #ddd; font-family: monospace; font-size: 0.85rem;">
+            <span class="code-title" style="font-weight: bold;">{{ . }}</span>
+            <span class="code-lang-badge" style="text-transform: uppercase; font-size: 0.75rem; color: #888;">{{ $.Type }}</span>
+        </div>
+        {{- end -}}
+        <!-- Vanilla JS Clipboard Copy Trigger -->
+        <button class="copy-btn" onclick="copyCode(this)" style="background: transparent; border: 1px solid #555; color: #aaa; padding: 0.2rem 0.5rem; border-radius: 3px; cursor: pointer; font-size: 0.8rem;">
+            Copy
+        </button>
+    </div>
+
+    <!-- The actual code syntax block wrapper -->
+    <div class="code-content" style="margin: 0;">
+        {{ $result.Wrapped }}
+    </div>
+</div>
+

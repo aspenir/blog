@@ -1,0 +1,39 @@
+{{ define "main" }}
+
+    {{ .Content }}
+
+
+
+<!-- FIX: Explicitly drops the global list bullet formatting and aligns everything flush to the left margins -->
+<ul style="list-style: none !important; padding-left: 0 !important; margin: 2rem 0;">
+    {{ range .Pages }}
+    <li class="home-post-card nomarker" style="padding: 1rem 0; margin-bottom: 2rem; border-bottom: 1px solid var(--base02); list-style-type: none !important;">
+        
+        <!-- Post Title Link -->
+        <h3 style="margin: 0 0 0.5rem 0; font-size: 1.3rem; font-weight: 600; display: inline-block;">
+            <a href="{{ .Permalink }}" style="text-decoration: none;">{{ .Title }}</a>
+        </h3>
+        
+        <!-- Card Metadata Row -->
+        <div style="font-size: 0.85rem; color: var(--base03); font-family: var(--font-monospace); margin-bottom: 0.75rem;">
+            {{ .Date.Format "2006-01-02" }} &middot; {{ .ReadingTime }} min read
+        </div>
+        
+        <!-- Safely splits the rendered markdown by the first closing paragraph tag -->
+        {{ $paragraphs := split .Content "</p>" }}
+        {{ with index $paragraphs 0 }}
+            {{ . | safeHTML }}..</p>
+        {{ end }}
+        
+    </li>
+    {{ end }}
+</ul>
+
+    
+
+
+{{ end }}
+
+
+
+

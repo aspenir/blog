@@ -1,0 +1,13 @@
+baseURL = ''
+relativeUrls = true
+locale = 'en-us'
+title = 'Aspenir'
+theme = "colthree"
+canonifyURLs = true
+
+
+[markup]
+  [markup.highlight]
+    noClasses = false  # Tells Hugo to use CSS classes instead of inline color declarations
+    style = "dracula"  # Or your preferred color scheme palette (monokai, github-dark, etc)
+
