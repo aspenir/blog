@@ -14,7 +14,8 @@ Recent incidents illustrate how these attacks can happen:
 - The Laravel PHP web framework had older version tags on GitHub silently changed to point to a malicious `autoload.php` file that harvested SSH keys and GitHub personal access tokens (PATs).
 
 ### So, how can we fix this?
-As [purplesyringa (Alisa Sireneva) points out](https://purplesyringa.moe/blog/no-one-owes-you-supply-chain-security/) - maintainers do not necessarily owe users supply-chain security. The MIT license itself includes a disclaimer of responsibility; `THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND`.
+As [purplesyringa (Alisa Sireneva) points out](https://purplesyringa.moe/blog/no-one-owes-you-supply-chain-security/) - maintainers do not necessarily owe users supply-chain security. The MIT license itself includes a disclaimer of responsibility;
+>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
 
 In contemporary language ecosystems like Rust or Python, the developer takes the responsibility of auditing their dependencies, or hoping some thankless security analyst finds any malicious code before it reaches their projects.
 

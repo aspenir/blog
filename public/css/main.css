@@ -1,6 +1,7 @@
 /* ns-hugo-imp:/home/ash/blog/themes/colthree/assets/css/components/header.css */
 header {
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid #aaa5a5;
+  padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
 .main-nav ul {
@@ -161,14 +162,20 @@ dl {
   margin: 0 0 1.5rem 0;
 }
 blockquote {
-  position: relative;
-  margin: 0 1.5rem 1.5rem 1.5rem;
+  margin: 1.5rem 0 !important;
+  padding: 1rem 1.25rem !important;
+  background-color: #3a3a3f !important;
+  border-left: 4px solid #ef3055 !important;
+  border-radius: 0 6px 6px 0 !important;
+  color: #e2e8f0 !important;
+  font-style: italic;
 }
-blockquote::before {
-  position: absolute;
-  left: -1.5rem;
-  content: ">";
-  color: var(--muted);
+blockquote p {
+  margin: 0 0 0.75rem 0 !important;
+  line-height: 1.6 !important;
+}
+blockquote p:last-child {
+  margin-bottom: 0 !important;
 }
 .twitter-tweet::before {
   content: "\f099";
