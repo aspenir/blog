@@ -11,3 +11,7 @@ canonifyURLs = true
     noClasses = false  # Tells Hugo to use CSS classes instead of inline color declarations
     style = "dracula"  # Or your preferred color scheme palette (monokai, github-dark, etc)
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
