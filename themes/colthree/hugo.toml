@@ -1,22 +1,3 @@
-baseURL = 'https://aspenir.github.io/blog'
-locale = 'en-US'
-title = 'Aspenir'
-
-[menus]
-  [[menus.main]]
-  name = 'Home'
-  pageRef = '/'
-  weight = 10
-
-  [[menus.main]]
-  name = "about"
-  pageRef = "/about.md"
-  weight = 20
-  [[menus.main]]
-  name = 'Tags'
-  pageRef = '/tags'
-  weight = 30
-
 [module]
   [module.hugoVersion]
     extended = false

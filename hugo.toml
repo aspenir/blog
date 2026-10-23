@@ -1,9 +1,27 @@
-baseURL = ''
-relativeUrls = true
+baseURL = 'https://aspenir.github.io/blog/'
 locale = 'en-us'
 title = 'Aspenir'
 theme = "colthree"
+relativeURLs = true
 canonifyURLs = true
+[params]
+  mainSections = ["/"]
+
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    url = './'
+    weight = 10
+
+  [[menu.main]]
+    name = 'About'
+    url = 'about/'
+    weight = 20
+
+  [[menu.main]]
+    name = 'Tags'
+    url = 'tags/'
+    weight = 30
 
 
 [markup]

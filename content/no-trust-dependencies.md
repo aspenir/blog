@@ -1,6 +1,6 @@
 +++
 date = '2026-10-23T11:31:14+01:00'
-draft = true
+draft = false
 title = 'No-trust dependencies: how Zea could improve supply-chain security'
 +++
 

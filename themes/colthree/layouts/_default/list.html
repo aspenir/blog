@@ -6,12 +6,13 @@
 
 <!-- FIX: Explicitly drops the global list bullet formatting and aligns everything flush to the left margins -->
 <ul style="list-style: none !important; padding-left: 0 !important; margin: 2rem 0;">
-    {{ range .Pages }}
+    {{ range site.Pages }}
+     {{ if eq .Kind "page" }}
     <li class="home-post-card nomarker" style="padding: 1rem 0; margin-bottom: 2rem; border-bottom: 1px solid var(--base02); list-style-type: none !important;">
         
         <!-- Post Title Link -->
         <h3 style="margin: 0 0 0.5rem 0; font-size: 1.3rem; font-weight: 600; display: inline-block;">
-            <a href="{{ .Permalink }}" style="text-decoration: none;">{{ .Title }}</a>
+            <a href="{{ .RelPermalink }}" style="text-decoration: none;">{{ .Title }}</a>
         </h3>
         
         <!-- Card Metadata Row -->
@@ -26,6 +27,7 @@
         {{ end }}
         
     </li>
+    {{end}}
     {{ end }}
 </ul>
 
